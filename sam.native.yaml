@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS Serverless Quarkus HTTP
+Globals:
+  Api:
+    BinaryMediaTypes:
+      - "*/*"
+
+Resources:
+  RiskScoreEngineNativeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: QuarkusNativeChunkedIssue
+      Handler: not.used.in.provided.runtimei
+      Runtime: provided
+      CodeUri: target/function.zip
+      MemorySize: 2048
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 15
+      Environment:
+        Variables:
+          DISABLE_SIGNAL_HANDLERS: true
+          QUARKUS_PROFILE: test
