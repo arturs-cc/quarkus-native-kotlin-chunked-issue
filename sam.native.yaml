@@ -7,7 +7,7 @@ Globals:
       - "*/*"
 
 Resources:
-  RiskScoreEngineNativeFunction:
+  QuarkusNativeChunkedIssue:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: QuarkusNativeChunkedIssue
